@@ -1,0 +1,73 @@
+{
+  "format_version": "1.0",
+  "terraform_version": "1.7.0",
+  "serial": 1,
+  "environment": "dev",
+  "applied_at": "2026-10-27T10:55:09.530096Z",
+  "resources": [
+    {
+      "type": "aws_s3_bucket",
+      "name": "bronze_raw",
+      "id": "healthcare-dataops-raw-dev",
+      "tier": "Bronze (Raw Landing)",
+      "action": "create"
+    },
+    {
+      "type": "aws_s3_bucket_server_side_encryption",
+      "name": "bronze_crypto",
+      "id": "AES256-KMS",
+      "tier": "Security",
+      "action": "create"
+    },
+    {
+      "type": "aws_s3_bucket",
+      "name": "silver_fhir",
+      "id": "healthcare-dataops-fhir-silver-dev",
+      "tier": "Silver (HL7 FHIR R4)",
+      "action": "create"
+    },
+    {
+      "type": "aws_s3_bucket",
+      "name": "gold_curated",
+      "id": "healthcare-dataops-analytics-gold-dev",
+      "tier": "Gold (Analytics Mart)",
+      "action": "create"
+    },
+    {
+      "type": "aws_db_instance",
+      "name": "fhir_clinical_db",
+      "id": "healthcare-dataops-db-dev",
+      "engine": "postgres:15.4",
+      "tier": "Interoperability DB",
+      "action": "create"
+    },
+    {
+      "type": "aws_iam_role",
+      "name": "dataops_pipeline_runner",
+      "id": "healthcare-dataops-runner-role-dev",
+      "tier": "IAM Security",
+      "action": "create"
+    },
+    {
+      "type": "aws_sqs_queue",
+      "name": "ehr_ingest_queue",
+      "id": "healthcare-dataops-ingest-events-dev",
+      "tier": "Ingestion Queue",
+      "action": "create"
+    },
+    {
+      "type": "aws_cloudwatch_metric_alarm",
+      "name": "pipeline_error_alarm",
+      "id": "healthcare-dataops-failure-alarm-dev",
+      "tier": "Observability",
+      "action": "create"
+    }
+  ],
+  "outputs": {
+    "bronze_raw_bucket": "s3://healthcare-dataops-raw-dev",
+    "silver_fhir_bucket": "s3://healthcare-dataops-fhir-silver-dev",
+    "gold_analytics_bucket": "s3://healthcare-dataops-analytics-gold-dev",
+    "db_endpoint": "fhir-interop-dev.c8v3x.ap-south-1.rds.amazonaws.com:5432",
+    "runner_iam_role_arn": "arn:aws:iam::123456789012:role/healthcare-dataops-runner-role-dev"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "total_tests": 8,
+  "passed_tests": 8,
+  "failed_tests": 0,
+  "pass_rate_percent": 100.0,
+  "overall_status": "SUCCESS",
+  "results": [
+    {
+      "test_name": "Raw Schema Completeness",
+      "category": "Schema",
+      "status": "PASSED",
+      "passed": true,
+      "details": "All required EHR columns present"
+    },
+    {
+      "test_name": "Systolic BP Physiological Bound [60-260 mmHg]",
+      "category": "Data Consistency",
+      "status": "PASSED",
+      "passed": true,
+      "details": "All values within valid clinical range"
+    },
+    {
+      "test_name": "Diastolic BP Physiological Bound [40-160 mmHg]",
+      "category": "Data Consistency",
+      "status": "PASSED",
+      "passed": true,
+      "details": "All values within valid clinical range"
+    },
+    {
+      "test_name": "Blood Glucose Physiological Bound [40-500 mg/dL]",
+      "category": "Data Consistency",
+      "status": "PASSED",
+      "passed": true,
+      "details": "All values within valid bounds"
+    },
+    {
+      "test_name": "HIPAA Safe Harbor SSN Redaction Gate",
+      "category": "Security & Privacy",
+      "status": "PASSED",
+      "passed": true,
+      "details": "Zero unmasked SSNs found"
+    },
+    {
+      "test_name": "HIPAA Safe Harbor Name Redaction Gate",
+      "category": "Security & Privacy",
+      "status": "PASSED",
+      "passed": true,
+      "details": "All direct names redacted"
+    },
+    {
+      "test_name": "HL7 FHIR R4 Resource Type Compliance",
+      "category": "Interoperability",
+      "status": "PASSED",
+      "passed": true,
+      "details": "All resources adhere to standard FHIR R4 types"
+    },
+    {
+      "test_name": "FHIR Patient Referential Integrity Gate",
+      "category": "Interoperability",
+      "status": "PASSED",
+      "passed": true,
+      "details": "All clinical resources correctly reference Patient ID"
+    }
+  ]
+}
